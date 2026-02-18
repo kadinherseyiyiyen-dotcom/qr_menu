@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR Menü</title>
+  <style>
+    :root{
+      --bg:#f6f2e8;
+      --hero:#22482a;
+      --hero-2:#19371f;
+      --paper:#fffdf8;
+      --line:#e8ddc8;
+      --ink:#1e2a1f;
+      --muted:#627063;
+      --accent:#c89434;
+      --chip:#ece4d4;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Trebuchet MS","Segoe UI",Tahoma,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 15% 0%, #fff6df 0, transparent 45%),
+        radial-gradient(circle at 95% 30%, #e8f0e4 0, transparent 42%),
+        var(--bg);
+    }
+    .wrap{max-width:1120px;margin:0 auto;padding:12px}
+    .hero{
+      background:linear-gradient(135deg,var(--hero),var(--hero-2));
+      color:#f4f8f0;
+      border-radius:18px;
+      padding:18px 16px;
+      box-shadow:0 12px 32px rgba(18,34,20,.28);
+      position:sticky;
+      top:8px;
+      z-index:30;
+    }
+    .title{
+      margin:0;
+      font-size:clamp(28px,6vw,44px);
+      line-height:1;
+      letter-spacing:1px;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    .sub{
+      margin-top:8px;
+      font-weight:700;
+      color:#d4e8d0;
+      font-size:13px;
+    }
+    .toolbar{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .search{
+      flex:1 1 260px;
+      min-width:160px;
+      border:none;
+      border-radius:999px;
+      padding:11px 14px;
+      font-size:15px;
+      color:#132013;
+      background:#f6f8ef;
+    }
+    .btn{
+      border:none;
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:800;
+      cursor:pointer;
+      background:rgba(255,255,255,.16);
+      color:#f4f8f0;
+    }
+    .cats{
+      margin:12px 0 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .cat{
+      border:none;
+      border-radius:999px;
+      background:var(--chip);
+      color:#273327;
+      padding:9px 14px;
+      font-size:13px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .cat.active{
+      background:var(--hero);
+      color:#fff;
+    }
+    .grid{
+      display:grid;
+      gap:10px;
+      grid-template-columns:1fr;
+      margin-top:6px;
+    }
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .thumb{
+      width:72px;height:72px;flex:0 0 72px;
+      border-radius:10px;
+      border:1px solid #e4d9c2;
+      background:#f0ecdf center/cover no-repeat;
+    }
+    .meta{min-width:0;flex:1}
+    .name{
+      margin:0;
+      font-size:19px;
+      font-weight:900;
+      line-height:1.2;
+    }
+    .group{
+      margin-top:4px;
+      font-size:12px;
+      font-weight:800;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+    .price{
+      margin-top:7px;
+      display:inline-block;
+      font-size:22px;
+      font-weight:900;
+      color:#17411f;
+      border:1px solid #d7ead4;
+      background:#f2fbf0;
+      border-radius:10px;
+      padding:2px 10px;
+    }
+    .empty{
+      margin-top:12px;
+      text-align:center;
+      border:1px dashed #c8bea8;
+      border-radius:12px;
+      padding:14px;
+      color:#6d766d;
+      font-weight:800;
+      background:rgba(255,255,255,.5);
+      display:none;
+    }
+    @media (min-width:860px){
+      .grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1 class="title">Kahvaltı Menüsü</h1>
+      <div class="sub">QR ile açılan dijital menü</div>
+      <div class="toolbar">
+        <input id="search" class="search" type="search" placeholder="Ürün ara: menemen, çay, sucuk...">
+        <button id="clear" class="btn" type="button">Temizle</button>
+      </div>
+    </section>
+
+    <div id="cats" class="cats"></div>
+    <section id="grid" class="grid"></section>
+    <div id="empty" class="empty">Sonuç bulunamadı.</div>
+  </main>
+
+  <script>
+    const alias = {
+      ana_menu: "Ana Menü",
+      ekstralar: "Ekstralar",
+      icecekler: "İçecekler",
+      sarkuteri: "Şarküteri",
+      sicak_ucretsiz: "Ücretsiz Sıcaklar"
+    };
+
+    let allItems = [];
+    let activeCat = "all";
+
+    function trPrice(v){
+      return `${Math.round(Number(v || 0)).toLocaleString("tr-TR")} ₺`;
+    }
+
+    function norm(v){
+      return String(v || "").toLocaleLowerCase("tr-TR");
+    }
+
+    function renderCats(cats){
+      const root = document.getElementById("cats");
+      root.innerHTML = "";
+      cats.forEach(c => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = `cat${activeCat === c ? " active" : ""}`;
+        b.textContent = c === "all" ? "Tümü" : (alias[c] || c);
+        b.onclick = () => {
+          activeCat = c;
+          renderCats(cats);
+          renderItems();
+        };
+        root.appendChild(b);
+      });
+    }
+
+    function renderItems(){
+      const q = norm(document.getElementById("search").value.trim());
+      const list = allItems.filter(i => {
+        if (activeCat !== "all" && i.category !== activeCat) return false;
+        if (!q) return true;
+        return norm(i.name).includes(q) || norm(alias[i.category] || i.category).includes(q);
+      });
+      const grid = document.getElementById("grid");
+      const empty = document.getElementById("empty");
+      grid.innerHTML = "";
+      if (!list.length){
+        empty.style.display = "block";
+        return;
+      }
+      empty.style.display = "none";
+      list.forEach(i => {
+        const card = document.createElement("article");
+        card.className = "card";
+        const img = i.image ? `url('${String(i.image).replace(/'/g, "%27")}')` : "none";
+        card.innerHTML = `
+          <div class="thumb" style="background-image:${img};${!i.image ? "background:linear-gradient(145deg,#efe8d5,#f9f7ef);" : ""}"></div>
+          <div class="meta">
+            <h3 class="name">${i.name}</h3>
+            <div class="group">${alias[i.category] || i.category}</div>
+            <div class="price">${trPrice(i.price)}</div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    async function boot(){
+      let menu = {};
+      try{
+        const r = await fetch("./menu-data.json", { cache: "no-store" });
+        menu = await r.json();
+      }catch(e){
+        menu = {};
+      }
+      const rows = [];
+      Object.entries(menu || {}).forEach(([cat, items]) => {
+        if (!Array.isArray(items)) return;
+        items.forEach((it, idx) => {
+          if (!it) return;
+          rows.push({
+            id: it.id || `${cat}_${idx}`,
+            name: String(it.name || "").trim(),
+            price: Number(it.price || 0),
+            image: String(it.image || "").trim(),
+            category: cat
+          });
+        });
+      });
+      allItems = rows.filter(x => x.name);
+      const cats = ["all", ...Array.from(new Set(allItems.map(i => i.category)))];
+      renderCats(cats);
+      renderItems();
+      document.getElementById("search").addEventListener("input", renderItems);
+      document.getElementById("clear").addEventListener("click", () => {
+        document.getElementById("search").value = "";
+        activeCat = "all";
+        renderCats(cats);
+        renderItems();
+      });
+    }
+    boot();
+  </script>
+</body>
+</html>

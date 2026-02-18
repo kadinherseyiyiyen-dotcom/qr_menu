@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR Kod</title>
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(140deg,#14351e,#264e30 55%,#315a3a);
+      font-family:"Trebuchet MS","Segoe UI",Tahoma,sans-serif;
+      color:#f4f7ef;
+    }
+    .card{
+      width:min(92vw,420px);
+      background:#fff;
+      color:#192419;
+      border-radius:22px;
+      padding:22px;
+      text-align:center;
+      box-shadow:0 20px 44px rgba(0,0,0,.3);
+    }
+    h1{margin:8px 0 4px;font-size:34px;letter-spacing:1px}
+    p{margin:0 0 14px;color:#5c685c;font-weight:700}
+    .qr-wrap{
+      display:inline-block;
+      background:#fff;
+      border:1px solid #d7e2d6;
+      border-radius:16px;
+      padding:12px;
+    }
+    img{display:block;width:280px;height:280px}
+    .link{
+      margin-top:12px;
+      font-size:12px;
+      color:#617061;
+      word-break:break-all;
+    }
+    .btn{
+      margin-top:12px;
+      border:none;
+      border-radius:10px;
+      padding:10px 14px;
+      font-weight:800;
+      background:#173a22;
+      color:#fff;
+      cursor:pointer;
+    }
+    @media print{
+      body{background:#fff}
+      .card{box-shadow:none;border:1px solid #ddd}
+      .btn{display:none}
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>QR MENÜ</h1>
+    <p>Kamerayla okutun, menüyü açın.</p>
+    <div class="qr-wrap"><img id="qrImage" alt="QR"></div>
+    <div class="link" id="menuLink"></div>
+    <button class="btn" onclick="window.print()">Yazdır</button>
+  </main>
+  <script>
+    const base = window.location.origin + window.location.pathname.replace(/\/qr\.html$/,'/');
+    const target = base;
+    const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=' + encodeURIComponent(target);
+    document.getElementById('qrImage').src = qrUrl;
+    document.getElementById('menuLink').textContent = target;
+  </script>
+</body>
+</html>
+

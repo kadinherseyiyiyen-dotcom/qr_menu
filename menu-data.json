@@ -1,0 +1,473 @@
+{
+  "ana_menu": [
+    {
+      "id": 28,
+      "name": "SERPME KAHVALTI",
+      "price": 1290.0,
+      "image": "🍽️"
+    },
+    {
+      "id": 29,
+      "name": "SU",
+      "price": 60.0,
+      "image": "🍼"
+    },
+    {
+      "id": 156,
+      "name": "VALE HIZMETI",
+      "price": 300.0,
+      "image": "🚗"
+    }
+  ],
+  "ekstralar": [
+    {
+      "id": 157,
+      "name": "PATATES KIZARTMASI",
+      "price": 350.0,
+      "image": "🍟"
+    },
+    {
+      "id": 158,
+      "name": "HELLIM",
+      "price": 350.0,
+      "image": "🧀"
+    },
+    {
+      "id": 159,
+      "name": "FALAFEL",
+      "price": 350.0,
+      "image": "🥙"
+    },
+    {
+      "id": 160,
+      "name": "KARISIK KIZARTMA",
+      "price": 350.0,
+      "image": "🥨"
+    },
+    {
+      "id": 161,
+      "name": "SOSIS",
+      "price": 350.0,
+      "image": "🌭"
+    },
+    {
+      "id": 162,
+      "name": "YUMURTA",
+      "price": 350.0,
+      "image": "🥘​"
+    },
+    {
+      "id": 110,
+      "name": "FULL",
+      "price": 350.0,
+      "image": "🥘​"
+    },
+    {
+      "id": 113,
+      "name": "KASARLI GOZLEME",
+      "price": 400.0,
+      "image": "🥟"
+    },
+    {
+      "id": 114,
+      "name": "PEYNIRLI GOZLEME",
+      "price": 350.0,
+      "image": "🥟"
+    },
+    {
+      "id": 100,
+      "name": "MIHLAMA",
+      "price": 350.0,
+      "image": "🥘​"
+    },
+    {
+      "id": 122,
+      "name": "KAHVALTI TABAGI",
+      "price": 350.0,
+      "image": "🍽"
+    },
+    {
+      "id": 163,
+      "name": "SUCUK",
+      "price": 350.0,
+      "image": "🌭"
+    },
+    {
+      "id": 166,
+      "name": "ISPANAKLI GOZLEME",
+      "price": 350.0,
+      "image": "🥟"
+    },
+    {
+      "id": 167,
+      "name": "PATATESLI GOZLEME",
+      "price": 350.0,
+      "image": "🥟"
+    },
+    {
+      "id": 168,
+      "name": "KASARLI PATATESLI GOZLEME",
+      "price": 400.0,
+      "image": "🥟"
+    },
+    {
+      "id": 169,
+      "name": "PANKEK",
+      "price": 350.0,
+      "image": "🥙"
+    },
+    {
+      "id": 170,
+      "name": "BAZLAMA",
+      "price": 50.0,
+      "image": "🥟"
+    },
+    {
+      "id": 171,
+      "name": "ZAHTERLI GOZLEME",
+      "price": 350.0,
+      "image": "🥟"
+    },
+    {
+      "id": 172,
+      "name": "SOGUS TABAGI",
+      "price": 200.0,
+      "image": "🍽"
+    },
+    {
+      "id": 173,
+      "name": "PEYNIR TABAGI",
+      "price": 200.0,
+      "image": "🍽"
+    },
+    {
+      "id": 174,
+      "name": "BAL-KAYMAK",
+      "price": 200.0,
+      "image": "🥨"
+    },
+    {
+      "id": 175,
+      "name": "ZEYTIN TABAGI",
+      "price": 200.0,
+      "image": "🥨"
+    },
+    {
+      "id": 176,
+      "name": "MENEMEN",
+      "price": 350.0,
+      "image": "🥘​"
+    }
+  ],
+  "icecekler": [
+    {
+      "id": 123,
+      "name": "CAY",
+      "price": 50.0,
+      "image": "🧉"
+    },
+    {
+      "id": 124,
+      "name": "KARAK",
+      "price": 100.0,
+      "image": "🥃"
+    },
+    {
+      "id": 125,
+      "name": "SUTLU CAY",
+      "price": 125.0,
+      "image": "🥃"
+    },
+    {
+      "id": 126,
+      "name": "PORTAKAL SUYU",
+      "price": 300.0,
+      "image": "🍊"
+    },
+    {
+      "id": 127,
+      "name": "LIMONATA",
+      "price": 300.0,
+      "image": "🍋"
+    },
+    {
+      "id": 128,
+      "name": "NAR SUYU",
+      "price": 300.0,
+      "image": "🥤"
+    },
+    {
+      "id": 104,
+      "name": "AMERICANO",
+      "price": 150.0,
+      "image": "☕"
+    },
+    {
+      "id": 105,
+      "name": "ICE AMERICANO",
+      "price": 150.0,
+      "image": "❄️"
+    },
+    {
+      "id": 106,
+      "name": "ESPRESSO",
+      "price": 150.0,
+      "image": "☕"
+    },
+    {
+      "id": 107,
+      "name": "DOUBLE SHOT ESPRESSO",
+      "price": 150.0,
+      "image": "☕"
+    },
+    {
+      "id": 108,
+      "name": "CARAMEL MACCHIATO",
+      "price": 250.0,
+      "image": "☕"
+    },
+    {
+      "id": 109,
+      "name": "SICAK CIKOLATA",
+      "price": 200.0,
+      "image": "☕"
+    },
+    {
+      "id": 115,
+      "name": "CHOCOLATE MOCHA",
+      "price": 250.0,
+      "image": "☕"
+    },
+    {
+      "id": 111,
+      "name": "WHITE CHOCOLATE MOCHA",
+      "price": 250.0,
+      "image": "☕"
+    },
+    {
+      "id": 116,
+      "name": "SICAK SUT",
+      "price": 100.0,
+      "image": "☕"
+    },
+    {
+      "id": 101,
+      "name": "FLAT WHITE",
+      "price": 200.0,
+      "image": "☕"
+    },
+    {
+      "id": 102,
+      "name": "KOLA",
+      "price": 100.0,
+      "image": "🥤"
+    },
+    {
+      "id": 103,
+      "name": "FANTA",
+      "price": 100.0,
+      "image": "🥤"
+    },
+    {
+      "id": 117,
+      "name": "GAZOZ",
+      "price": 100.0,
+      "image": "🥤"
+    },
+    {
+      "id": 118,
+      "name": "LATTE",
+      "price": 200.0,
+      "image": "☕"
+    },
+    {
+      "id": 119,
+      "name": "ICE LATTE",
+      "price": 200.0,
+      "image": "❄️"
+    },
+    {
+      "id": 120,
+      "name": "CAPPUCCINO",
+      "price": 200.0,
+      "image": "☕"
+    },
+    {
+      "id": 121,
+      "name": "TURK KAHVESI",
+      "price": 150.0,
+      "image": "☕"
+    },
+    {
+      "id": 151,
+      "name": "CORTADO",
+      "price": 200.0,
+      "image": "☕"
+    },
+    {
+      "id": 155,
+      "name": "BALLI SUT",
+      "price": 150.0,
+      "image": "🍼"
+    },
+    {
+      "id": 164,
+      "name": "SODA",
+      "price": 100.0,
+      "image": "🍼"
+    },
+    {
+      "id": 165,
+      "name": "AYRAN",
+      "price": 100.0,
+      "image": "🍼"
+    }
+  ],
+  "sarkuteri": [
+    {
+      "id": 152,
+      "name": "EST BUYUK KOLONYA",
+      "price": 600.0,
+      "image": "🧴"
+    },
+    {
+      "id": 153,
+      "name": "EST SET KOLONYA",
+      "price": 700.0,
+      "image": "🧴"
+    },
+    {
+      "id": 154,
+      "name": "EST KOPUK SABUN",
+      "price": 500.0,
+      "image": "🧼"
+    },
+    {
+      "id": 129,
+      "name": "EST BODY SPLASH",
+      "price": 300.0,
+      "image": "🧴💦"
+    },
+    {
+      "id": 130,
+      "name": "EST ISLAK MENDIL",
+      "price": 600.0,
+      "image": "🏷️"
+    },
+    {
+      "id": 131,
+      "name": "EST ODA SPREYI",
+      "price": 400.0,
+      "image": "🧴💦"
+    },
+    {
+      "id": 132,
+      "name": "EST ROLL ON",
+      "price": 400.0,
+      "image": "🏷️"
+    },
+    {
+      "id": 112,
+      "name": "REBUL SPREY KOLONYA",
+      "price": 300.0,
+      "image": "🧴"
+    },
+    {
+      "id": 133,
+      "name": "REBUL MINIK KOLONYA",
+      "price": 150.0,
+      "image": "🧴"
+    },
+    {
+      "id": 134,
+      "name": "REBUL BUYUK KOLONYA",
+      "price": 600.0,
+      "image": "🧴"
+    },
+    {
+      "id": 135,
+      "name": "REBUL ISLAK MENDIL",
+      "price": 600.0,
+      "image": "🏷️"
+    },
+    {
+      "id": 136,
+      "name": " REBUL PARFUM SET",
+      "price": 990.0,
+      "image": "🧴"
+    },
+    {
+      "id": 137,
+      "name": "EL YAPIMI TABAK",
+      "price": 990.0,
+      "image": "⚪️"
+    },
+    {
+      "id": 138,
+      "name": "EL YAPIMI FINCAN",
+      "price": 990.0,
+      "image": "⛾"
+    },
+    {
+      "id": 139,
+      "name": "PAKET ZAHTER",
+      "price": 750.0,
+      "image": "🌿"
+    },
+    {
+      "id": 140,
+      "name": "RECEL KUCUK KAVANOZ",
+      "price": 750.0,
+      "image": "🍯"
+    },
+    {
+      "id": 141,
+      "name": "RECEL BUYUK KAVANOZ",
+      "price": 1500.0,
+      "image": "🍯"
+    },
+    {
+      "id": 142,
+      "name": "BAL KUCUK KAVANOZ",
+      "price": 750.0,
+      "image": "🍯"
+    },
+    {
+      "id": 143,
+      "name": "BAL BUYUK KAVANOZ",
+      "price": 1500.0,
+      "image": "🍯"
+    },
+    {
+      "id": 144,
+      "name": "PAKET TURK KAHVESI KUCUK",
+      "price": 500.0,
+      "image": "☕"
+    },
+    {
+      "id": 145,
+      "name": "PAKET TURK KAHVESI BUYUK",
+      "price": 1000.0,
+      "image": "☕"
+    },
+    {
+      "id": 146,
+      "name": "PAKET CAY",
+      "price": 750.0,
+      "image": "🌿"
+    },
+    {
+      "id": 147,
+      "name": "OYUNCAK",
+      "price": 350.0,
+      "image": "🧸"
+    },
+    {
+      "id": 149,
+      "name": "EST SPREY KOLONYA",
+      "price": 300.0,
+      "image": "🧴"
+    }
+  ],
+  "sicak_ucretsiz": []
+}
